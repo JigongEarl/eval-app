@@ -25,6 +25,9 @@ Thumbs.db
 *.swo
 *~
 
+# ---- evaluation report (standalone artifact, not part of codebase) ----
+EVAL-REPORT.md
+
 # ---- env / secrets ----
 .env
 .env.local
