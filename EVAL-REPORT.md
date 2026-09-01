@@ -4,6 +4,21 @@
 > 评测时间：2026-09-01\
 > 运行环境：远程 Linux 沙箱（CI=true，HTTP/HTTPS egress 经 `127.0.0.1:18080` 代理）\
 > 最终仓库：<https://github.com/JigongEarl/eval-app> （public / 分支 `main` / HEAD `b52b9e5`）
+>
+> **沙箱资源规格：**
+>
+> | 项目      | 规格                                                                |
+> | ------- | ----------------------------------------------------------------- |
+> | 操作系统    | Ubuntu 24.04.3 LTS (Noble Numbat)，内核 6.18.5 SMP x86\_64           |
+> | CPU     | Intel Xeon Platinum 8582C，3 核                                     |
+> | 内存      | 5.8 GiB（无 Swap）                                                   |
+> | 磁盘      | 1.5 TB（已用 306 GB，可用 1.1 TB）                                       |
+> | 文件描述符上限 | 1,048,576                                                         |
+> | 进程数上限   | 7,504                                                             |
+> | 栈大小     | 8,192 KB                                                          |
+> | 可用端口范围  | 32768–60999                                                       |
+> | 网络出口    | HTTP/HTTPS 经 `127.0.0.1:18080` 代理；`NO_PROXY` 覆盖 localhost/cluster |
+> | 运行时     | Node.js v24.1.0、npm、Git 2.43.0                                    |
 
 **结论总览：8/8 全部通过。** 其中模块 1 受沙箱无 GitHub 凭据初始阻塞，经用户提供带 `repo` scope 的 classic PAT 后闭环；其余 7 个模块均在沙箱内独立、真实执行，所有「成功判定」均基于实际命令的 exit code、HTTP status、git refs 校验、匿名 clone 回比、Jest 测试报告等 **硬回执** 给出，非代码片段或假设。
 
