@@ -27,6 +27,7 @@ Thumbs.db
 
 # ---- evaluation report (standalone artifact, not part of codebase) ----
 EVAL-REPORT.md
+.git-askpass.sh
 
 # ---- env / secrets ----
 .env
